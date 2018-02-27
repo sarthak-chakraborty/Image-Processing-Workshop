@@ -1,0 +1,109 @@
+DAY 2:
+
+   On the second day of the winter workshop, the assignments from the previous class was first checked and the problems were
+sorted out. After this we were taught how to convert a color image to a gray scale image and was asked to do the same.
+Two ways of converting a color image to a gray scale image was told: i)make an average of the rgb value of a pixel and save
+it in the gray scale image, and ii)take an average between the minimum and maximum of the rgb value and store it. We were 
+also told that best quality picture is made by the proportion b:g:r:: 0.11 : 0.59 : 0.30.
+Pseudo Code is:
+for (i = 0; i < grey.rows; i++)
+	{
+		for (j = 0; j < grey.cols; j++)
+		{
+			avg = (img.at<Vec3b>(i, j)[0] + img.at<Vec3b>(i, j)[1] + img.at<Vec3b>(i, j)[2]) / 3;
+			avg1 = (max(max(img.at<Vec3b>(i, j)[0], img.at<Vec3b>(i, j)[1]) , img.at<Vec3b>(i, j)[2]) + min(min(img.at<Vec3b>(i, j)[0] , img.at<Vec3b>(i, j)[1]), img.at<Vec3b>(i, j)[2])) / 2;
+			avg2 = (0.11*img.at<Vec3b>(i, j)[0]) + (0.59*img.at<Vec3b>(i, j)[1]) + (0.30*img.at<Vec3b>(i, j)[2]);
+			grey.at<uchar>(i, j) = avg;
+			new_grey.at<uchar>(i, j) = avg1;
+			new_img.at<uchar>(i, j) = avg2;
+
+		}
+	}
+
+
+    Then we were taught about the different scale of color, namely rgb, hsv and hsl. We were also informed about the use of
+these different scales.
+
+     We were then taught about namedWindow(.) and createTrackbar(.) functions and what they do. We were also taught how to
+create a binary image(either white or black). The logic behind creating a binary image is to choose a threshold value of the
+pixel by trackbar and if other pixels values are less than the threshold value, it will be assigned 0 else 255.
+Pseudo Code:
+namedWindow(windowname, WINDOW_NORMAL);
+while (1)
+	{
+		createTrackbar("Trackbar", windowname, &v, 255);
+		Mat bin_img = convtoBin(img, v);
+		displayimage(bin_img, windowname);
+		char ch = waitKey(5);
+
+		if (ch == ' ')
+			break;
+	}
+
+Mat convtoBin(Mat img, int v)
+{
+	Mat bin_img(img.rows, img.cols, CV_8UC1, 255);
+
+	int i, j;
+
+	for (i = 0; i < img.rows; i++)
+	{
+		for (j = 0; j < img.cols; j++)
+		{
+			if (img.at<uchar>(i, j) <= v)
+				bin_img.at<uchar>(i, j) = 0;
+			else
+				bin_img.at<uchar>(i, j) = 255;
+		}
+	}
+	return bin_img;
+
+}
+
+
+     We were then taught how to create a histogram and was asked to check the frequency of each pixel value in the picture 
+nd plot it in a histogram. 
+
+      We were then taught about the basics of linear filters like vignette, morph, rotation etc. We were also taught about 
+what a kernel is and was asked to perform mean and median blur on an image.
+Pseudo Code for mean blur:
+for (i = 0; i < img.rows; i++)
+	{
+		
+		for (j = 0; j < img.cols; j++)
+		{
+			
+			int sum[3] = { 0, 0, 0 };
+			c = 0;
+			for (k = -1; k <= 1; k++)
+			{
+				for (l = -1; l <= 1; l++)
+				{
+					if (isValid(i + k, j + l, img))
+					{
+						sum[0] += img.at<Vec3b>(i + k, j + l)[0];
+						sum[1] += img.at<Vec3b>(i + k, j + l)[1];
+						sum[2] += img.at<Vec3b>(i + k, j + l)[2];
+						c++;
+					}
+					
+				}
+				
+			}
+			
+			blur_img.at<Vec3b>(i, j)[0] = sum[0] / c;
+			blur_img.at<Vec3b>(i, j)[1] = sum[1] / c;
+			blur_img.at<Vec3b>(i, j)[2] = sum[2] / c;
+			
+		}
+		
+	}
+
+
+    We were also given some assignments,
+Assignments:
+i)Read about pointers.
+ii)Complete your mean and median blur implementation.
+    After this, if time permits, try the following:
+i)Apply the vignette filter to an image.
+ii)Rotation of an image by an angle. Change the angle using a trackbar.

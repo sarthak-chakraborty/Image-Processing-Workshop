@@ -1,0 +1,72 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include<math.h>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace cv;
+using namespace std;
+
+/*
+void displayimage(Mat img,String windowname)
+{
+	imshow(windowname, img);
+}
+
+Mat readimage(String filename)
+{
+	return imread(filename, CV_LOAD_IMAGE_GRAYSCALE);
+}
+
+Mat convtoBin(Mat img, int v)
+{
+	Mat bin_img(img.rows, img.cols, CV_8UC1, 255);
+
+	int i, j;
+
+	for (i = 0; i < img.rows; i++)
+	{
+		for (j = 0; j < img.cols; j++)
+		{
+			if (img.at<uchar>(i, j) <= v)
+				bin_img.at<uchar>(i, j) = 0;
+			else
+				bin_img.at<uchar>(i, j) = 255;
+		}
+	}
+	return bin_img;
+
+}
+
+
+void createimage(String filename,String windowname)
+{
+	int v = 0,i,j;
+
+	Mat img = readimage(filename);
+	
+	namedWindow(windowname, WINDOW_NORMAL);
+	
+
+	displayimage(img, "Original");
+
+	while (1)
+	{
+		createTrackbar("Trackbar", windowname, &v, 255);
+		Mat bin_img = convtoBin(img, v);
+		displayimage(bin_img, windowname);
+		char ch = waitKey(5);
+
+		if (ch == ' ')
+			break;
+	}
+
+}
+
+
+void main()
+{
+	createimage("F:\\pics\\lenna.jpg", "Changing Contrast");
+}*/

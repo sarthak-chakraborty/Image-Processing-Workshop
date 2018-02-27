@@ -1,0 +1,92 @@
+DAY 4:
+
+	We were first asked to show the previous day's assignments which was checked by the mentors. We were then taught 
+about a new concept of Color Extraction. We were to give a threshold tolerance value by a trackbar and check if the adjacent
+pixels lie within the given tolerance value. If yes, print it, else no.
+Pseudo Code is:
+for (i = 0; i < img->rows; i++)
+	{
+		for (j = 0; j < img->cols; j++)
+		{
+			if(img->at<Vec3b>(i,j)[0] >= (b-t) && img->at<Vec3b>(i,j)[0] <= (b+t) && img->at<Vec3b>(i,j)[1] >= (g-t) && img->at<Vec3b>(i,j)[1] <= (g+t) && img->at<Vec3b>(i,j)[2] >= (r-t) && img->at<Vec3b>(i,j)[2] <= (r+t) )
+			{
+				bin.at<Vec3b>(i,j)[0]=img->at<Vec3b>(i,j)[0];
+				bin.at<Vec3b>(i,j)[1]=img->at<Vec3b>(i,j)[1];
+				bin.at<Vec3b>(i,j)[2]=img->at<Vec3b>(i,j)[2];
+			}
+
+		}
+	}
+
+	We were then taught about the concepts of stacks and queues and was also informed about the library function STL.
+We were asked to implement stacks and queues.
+
+	Then we had a mid evaluation in which seniors came and gave a task. The task was that we were to create a call back
+function for mouse drag so that the system senses and color the path along which the mouse travels. They then gave some 
+general tips regarding computer vision. An oral mid evaluation was also held by Mr Harsh Bharadwaj who asked some general
+questions regarding the workshop to evaluate the depth of our basic knowledge.
+
+	We were then taught the basics of Graph Traversals and how it works. It has two basic methods:
+i) DFS(Depth First Search)
+ii) BFS(Breadth First Search)
+
+	We were taught about DFS first and was asked to implement it and show number of objects(nodules) in a given image.
+Pseudo Code is:
+void dfs(int i, int j, int c)
+{
+	bin.at<uchar>(i, j) = c;
+	
+	int k, l;
+	
+	for (k = -1; k <= 1; k++)
+	{
+		for (l = -1; l <= 1; l++)
+		{
+			if (isValid(i + k, j + l))
+			{
+				if (!(image.at<Vec3b>(i + k, j + l)[0] == 255 && image.at<Vec3b>(i + k, j + l)[1] == 255 && image.at<Vec3b>(i + k, j + l)[2] == 255))
+				{
+					if (bin.at<uchar>(i + k, j + l) == 0)
+					{
+						if (image.at<Vec3b>(i + k, j + l)[0] >= (image.at<Vec3b>(i, j)[0] - t) && image.at<Vec3b>(i + k, j + l)[0] <= (image.at<Vec3b>(i, j)[0] + t) && image.at<Vec3b>(i + k, j + l)[1] >= (image.at<Vec3b>(i, j)[1] - t) && image.at<Vec3b>(i + k, j + l)[1] <= (image.at<Vec3b>(i, j)[1] + t) && image.at<Vec3b>(i + k, j + l)[2] >= (image.at<Vec3b>(i, j)[2] - t) && image.at<Vec3b>(i + k, j + l)[2] <= (image.at<Vec3b>(i, j)[2] + t))
+						{
+							dfs(i + k, j + l, c);
+						}
+					}
+					else
+						continue;
+				}
+				else
+					continue;
+			}
+		}
+	}
+}
+
+void main()
+{
+:
+for (i = 0; i < image.rows; i++)
+	{
+		for (j = 0; j < image.cols; j++)
+		{
+			
+			if (!(image.at<Vec3b>(i, j)[0] == 255 && image.at<Vec3b>(i, j)[1] == 255 && image.at<Vec3b>(i, j)[2] == 255))
+			{
+				
+				if (bin.at<uchar>(i, j)==0)
+				{
+					c++;
+					dfs(i, j, c);
+				}
+				
+			}
+		}
+	}
+:
+}
+
+	We were also given some assignments:
+i) Perform an object shift in the given image.
+ii) Shift all th objects in the image.
+iii) Read bfs.

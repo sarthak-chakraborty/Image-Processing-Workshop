@@ -1,0 +1,62 @@
+DAY 1:
+
+On the first day of the Robotix Winter Workshop 2016, an introduction mainly to C language and Visual Studio was given.
+In the introduction to C, first the basics of C, that is, printf-scanf function, variable and constants, if-else conditions,
+looping statements, array, functions and structures were taught.
+	In the tutorial for Visual Studio, we were asked to first install it on our laptops and then start a new project. A
+sample code was given which we were to type in the Visual Studio interface and execute it. We were then taught about OpenCV
+and the code was explained to us in detail.
+
+The code mainly creates an image of Mat class and then execute the code suct that we have the output window coloured.
+
+The given sample code is:
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace cv;
+using namespace std;
+
+void displayimage(Mat image,String windowname)
+{
+	imshow(windowname, image);
+}
+
+Mat readimage(String filename)
+{
+	return imread(filename);
+}
+
+void createimagesampe()
+{
+	Mat temp2(500, 500, CV_8UC3, 255);
+	for (int i = 0; i < temp2.rows; i++)
+	{
+		for (int j = 0; j < temp2.cols; j++)
+		{
+			temp2.at<Vec3b>(i, j)[2] = 255;
+			temp2.at<Vec3b>(i, j)[1] = 0;
+			temp2.at<Vec3b>(i, j)[1] = 0;
+		}
+	}
+	displayimage(temp2, "random");
+}
+
+int main()
+{
+createimagesampe();
+int iKey = waitKey(50);
+waitKey(0);
+	return 0;
+}
+
+
+	From today's course. I get to have some idea about OpenCV. Also, I get to run a program in Visual Studio and do simple
+tasks regarding changing the colour of the output window page, or create a chessboard, or blacken a picture.
+
+We were also given homeworks. They are:
+1. Load an image of your choice, black out any one half of it.
+2. Create a chessboard image.

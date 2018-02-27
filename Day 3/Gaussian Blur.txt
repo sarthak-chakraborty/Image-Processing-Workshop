@@ -1,0 +1,90 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include<math.h>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace cv;
+using namespace std;
+
+/*
+int isValid(int i, int j,Mat img)
+{
+	if (i<0 || j<0 || j>img.cols || i>img.rows)
+	return 0;
+
+	return 1;
+}
+
+Mat blur(Mat img)
+{
+	float gauss[3][3] = { { 1.0 / 16, 1.0 / 8, 1.0 / 16 }, { 1.0 / 8, 1.0 / 4, 1.0 / 8 }, { 1.0 / 16, 1.0 / 8, 1.0 / 16 } };
+
+	Mat blur_img(img.rows, img.cols, CV_8UC3,255);
+	Mat blur_img1(img.rows, img.cols, CV_8UC3, 255);
+
+	int i, j, k, l;
+	float c = 0;
+
+	for (i = 0; i < img.rows-1; i++)
+	{
+
+		for (j = 0; j < img.cols-1; j++)
+		{
+
+			float sum[3] = { 0, 0, 0 };
+			c = 0;
+			for (k = -1; k <= 1; k++)
+			{
+				for (l = -1; l <= 1; l++)
+				{
+					if (isValid(i + k, j + l, img))
+					{
+						sum[0] += img.at<Vec3b>(i + k, j + l)[0] * gauss[k + 1][ l + 1];
+						sum[1] += img.at<Vec3b>(i + k, j + l)[1] * gauss[k + 1][ l + 1];
+						sum[2] += img.at<Vec3b>(i + k, j + l)[2] * gauss[k + 1][ l + 1];
+						c += gauss[k + 1][ l + 1];
+					}
+				}
+
+			}
+			blur_img.at<Vec3b>(i, j)[0] = sum[0] / c;
+			blur_img.at<Vec3b>(i, j)[1] = sum[1] / c;
+			blur_img.at<Vec3b>(i, j)[2] = sum[2] / c;
+
+			blur_img1.at<Vec3b>(i, j)[0] = sum[0];
+			blur_img1.at<Vec3b>(i, j)[1] = sum[1];
+			blur_img1.at<Vec3b>(i, j)[2] = sum[2];
+
+		}
+
+	}
+	imshow("Blur_New", blur_img1);
+
+	return blur_img;
+}
+
+void main()
+{
+	Mat image = imread("F:\\pics\\eiffel.jpg", CV_LOAD_IMAGE_COLOR);
+	imshow("Original", image);
+
+	Mat blur_img = blur(image);
+
+	Mat img(image.rows, image.cols, CV_8UC3, 255);
+	
+	for (int i = 0; i < image.rows; i++)
+	{
+		for (int j = 0; j < image.cols; j++)
+		{
+			img.at<Vec3b>(i, j)[0] = fabs((float)(image.at<Vec3b>(i, j)[0] - blur_img.at<Vec3b>(i, j)[0]));
+			img.at<Vec3b>(i, j)[1] = fabs((float)(image.at<Vec3b>(i, j)[1] - blur_img.at<Vec3b>(i, j)[1]));
+			img.at<Vec3b>(i, j)[2] = fabs((float)(image.at<Vec3b>(i, j)[2] - blur_img.at<Vec3b>(i, j)[2]));
+		}
+	}
+	imshow("Blur", blur_img);
+	imshow("Difference", img);
+	waitKey(0);
+}*/

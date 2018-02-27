@@ -1,0 +1,71 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include<math.h>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace cv;
+using namespace std;
+
+/*
+void displayimage(Mat img,String windowname)
+{
+imshow(windowname, img);
+}
+
+Mat readimage(String filename)
+{
+return imread(filename, CV_LOAD_IMAGE_COLOR);
+}
+
+void doubleimage(String filename)
+{
+	Mat image = readimage(filename);
+
+	int i, j;
+
+	Mat double_size (2 * image.rows, 2 * image.cols, CV_8UC3, 255);
+
+	for (i = 0; i < double_size.rows; i++)
+	{
+		for (j = 0; j < double_size.cols; j++)
+		{
+			double_size.at<Vec3b>(i, j)[0] = image.at<Vec3b>(i/2, j/2)[0];
+			double_size.at<Vec3b>(i, j)[1] = image.at<Vec3b>(i/2, j/2)[1];
+			double_size.at<Vec3b>(i, j)[2] = image.at<Vec3b>(i/2, j/2)[2];
+		}
+	}
+	displayimage(image, "Image");
+	displayimage(double_size, "Double Image");
+}
+
+void halfimage(String filename)
+{
+	Mat image = readimage(filename);
+
+	int i, j;
+
+	Mat half_size(image.rows/2, image.cols/2, CV_8UC3, 255);
+
+	for (i = 0; i < half_size.rows; i++)
+	{
+		for (j = 0; j < half_size.cols; j++)
+		{
+			half_size.at<Vec3b>(i, j)[0] = (image.at<Vec3b>(2*i, 2*j)[0] + image.at<Vec3b>(2*i, 2*j+1)[0] + image.at<Vec3b>(2*i+1, j)[0] + image.at<Vec3b>(2*i+1, 2*j+1)[0])/4;
+			half_size.at<Vec3b>(i, j)[1] = (image.at<Vec3b>(2*i, 2*j)[1] + image.at<Vec3b>(2*i, 2*j + 1)[1] + image.at<Vec3b>(2*i + 1, 2*j)[1] + image.at<Vec3b>(2*i + 1, 2*j + 1)[1]) / 4;
+			half_size.at<Vec3b>(i, j)[2] = (image.at<Vec3b>(2*i, 2*j)[2] + image.at<Vec3b>(2*i, 2*j + 1)[2] + image.at<Vec3b>(2*i + 1, 2*j)[2] + image.at<Vec3b>(2*i + 1, 2*j + 1)[2]) / 4;
+		}
+	}
+	displayimage(image, "Image");
+	displayimage(half_size, "half Image");
+}
+
+
+void main()
+{
+	doubleimage("F:\\pics\\lena.jpg");
+	halfimage("F:\\pics\\lena.jpg");
+	waitKey(0);
+}*/

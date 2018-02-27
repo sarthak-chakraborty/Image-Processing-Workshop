@@ -1,0 +1,85 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include<math.h>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace cv;
+using namespace std;
+
+/*
+void displayimage(Mat img,String windowname)
+{
+	imshow(windowname, img);
+}
+
+Mat readimage(String filename)
+{
+	return imread(filename, CV_LOAD_IMAGE_GRAYSCALE);
+}
+
+void countFreq(Mat img,int freq[])
+{
+
+	int i, j;
+
+	for (i = 0; i < img.rows; i++)
+	{
+		for (j = 0; j < img.cols; j++)
+		{
+			freq[img.at<uchar>(i, j)] += 1;
+		}
+	}
+
+}
+
+
+void createHistoImage(String filename)
+{
+	Mat img = readimage(filename);
+
+	int freq[256], i, j,c=0;
+
+	for (i = 0; i < 256; i++)
+		freq[i] = 0;
+
+	countFreq(img, freq);
+
+	for (i = 0; i < 256; i++)
+		freq[i] /= 5;
+
+
+	Mat histo(300, 800, CV_8UC1, Scalar(0));
+
+	for (int i = 0; i < histo.rows; i++)
+	{
+		for (int j = 0; j < histo.cols; j++)
+		{
+			histo.at<uchar>(i, j) = 0;
+		}
+	}
+
+
+	for (i = 0; i < histo.rows; i++)
+	{
+		for (j = 0; j < freq[c]; j++)
+		{
+			histo.at<uchar>(i,j) = 255;
+		}
+		c++;
+		if (c>256)
+			break;
+	}
+
+	displayimage(img, "Image");
+	displayimage(histo, "Histogram");
+}
+
+void main()
+{
+	createHistoImage("F:\\pics\\lenna.jpg");
+
+	waitKey(0);
+}*/

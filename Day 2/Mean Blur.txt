@@ -1,0 +1,112 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include<math.h>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace cv;
+using namespace std;
+
+
+/* int isValid(int i, int j,Mat img)
+{
+	if (i<0 || j<0 || j>img.cols || i>img.rows)
+		return 0;
+	
+	return 1;
+}
+
+Mat blur(Mat img)
+{
+	Mat blur_img(img.rows, img.cols, CV_8UC3,255);
+
+	int i, j, k, l, c;
+
+	for (i = 0; i < img.rows-1; i++)
+	{
+		
+		for (j = 0; j < img.cols-1; j++)
+		{
+			
+			int sum[3] = { 0, 0, 0 };
+			c = 0;
+			for (k = -1; k <= 1; k++)
+			{
+				for (l = -1; l <= 1; l++)
+				{
+					if (isValid(i + k, j + l, img))
+					{
+						sum[0] += img.at<Vec3b>(i + k, j + l)[0];
+						sum[1] += img.at<Vec3b>(i + k, j + l)[1];
+						sum[2] += img.at<Vec3b>(i + k, j + l)[2];
+						c++;
+					}
+					
+				}
+				
+			}
+			blur_img.at<Vec3b>(i, j)[0] = sum[0] / c;
+			blur_img.at<Vec3b>(i, j)[1] = sum[1] / c;
+			blur_img.at<Vec3b>(i, j)[2] = sum[2] / c;
+			
+		}
+		
+	}
+	
+	return blur_img;
+}
+
+Mat blur_same(Mat img)
+{
+
+	int i, j, k, l, c;
+
+	for (i = 0; i < img.rows-1; i++)
+	{
+
+		for (j = 0; j < img.cols-1; j++)
+		{
+
+			int sum[3] = { 0, 0, 0 };
+			c = 0;
+			for (k = -1; k <= 1; k++)
+			{
+				for (l = -1; l <= 1; l++)
+				{
+					if (isValid(i + k, j + l, img))
+					{
+						sum[0] += img.at<Vec3b>(i + k, j + l)[0];
+						sum[1] += img.at<Vec3b>(i + k, j + l)[1];
+						sum[2] += img.at<Vec3b>(i + k, j + l)[2];
+						c++;
+					}
+
+				}
+
+			}
+			img.at<Vec3b>(i, j)[0] = sum[0] / c;
+			img.at<Vec3b>(i, j)[1] = sum[1] / c;
+			img.at<Vec3b>(i, j)[2] = sum[2] / c;
+
+		}
+
+	}
+
+	return img;
+}
+
+void main()
+{
+	Mat image = imread("F:\\pics\\eiffel.jpg", CV_LOAD_IMAGE_COLOR);
+	imshow("Original", image);
+
+	Mat blur_img = blur(image);
+	
+	Mat blur_same_img = blur_same(image);
+  
+	imshow("Blur", blur_img);
+	imshow("BlurSame", blur_same_img);
+	waitKey(0);
+}*/

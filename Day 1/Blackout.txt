@@ -1,0 +1,44 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace cv;
+using namespace std;
+/*
+void displayimage(Mat img, String windowname)
+{
+	imshow(windowname, img);
+}
+
+Mat readimage(String filename)
+{
+	return imread(filename, CV_LOAD_IMAGE_COLOR);
+}
+
+void createimage(String filename)
+{
+	Mat temp = readimage(filename);
+	int i, j;
+	
+	for (i = temp.rows/2; i < temp.rows; i++)
+	{
+		for (j = 0; j < temp.cols; j++)
+		{
+			temp.at<Vec3b>(i, j)[0] = 0;
+			temp.at<Vec3b>(i, j)[1] = 0;
+			temp.at<Vec3b>(i, j)[2] = 0;
+		}
+	}
+	displayimage(temp, "Image");
+
+}
+
+void main()
+{
+	createimage("F:\\pics\\image.jpg");
+	int ikey = waitKey(50);
+	waitKey(0);
+}*/

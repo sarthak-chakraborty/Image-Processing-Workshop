@@ -1,0 +1,65 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include<math.h>
+#include <stdlib.h>
+#include <queue>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace cv;
+using namespace std;
+
+/*
+void main()
+{
+	VideoCapture cam(0);
+	int i, j;
+	Mat frame;
+	while (1)
+	{
+		cam >> frame;
+		
+		Mat img(frame.rows, frame.cols, CV_8UC3);
+		for (i = 0; i < img.rows; i++)
+		{
+			for (j = 0; j < img.cols/2; j++)
+			{
+				img.at<Vec3b>(i ,j)[0] = frame.at<Vec3b>(i, 2*j)[0];
+				img.at<Vec3b>(i, j)[1] = frame.at<Vec3b>(i, 2 * j)[1];
+				img.at<Vec3b>(i, j)[2] = frame.at<Vec3b>(i, 2 * j)[2];
+					
+				img.at<Vec3b>(i, img.cols - j - 1)[0] = img.at<Vec3b>(i, j)[0];
+				img.at<Vec3b>(i, img.cols - j - 1)[1] = img.at<Vec3b>(i, j)[1];
+				img.at<Vec3b>(i, img.cols - j - 1)[2] = img.at<Vec3b>(i, j)[2];
+				
+			}
+		}
+
+		Mat temp(img.rows, img.cols, CV_8UC1);
+		Mat grey(img.rows, img.cols, CV_8UC3, 255);
+
+		for (i = 0; i < grey.rows; i++)
+		{
+			for (j = 0; j < grey.cols; j++)
+			{
+				grey.at<Vec3b>(i, j)[0] = 255 - frame.at<Vec3b>(i,j)[0];
+				grey.at<Vec3b>(i, j)[1] = 255 - frame.at<Vec3b>(i, j)[1];
+				grey.at<Vec3b>(i, j)[2] = 255 - frame.at<Vec3b>(i, j)[2];
+			}
+		}	
+
+		Canny(frame, temp, 50, 150, 3);
+
+		imshow("Mirror", img);
+		imshow("Frame", frame);
+		imshow("Negative", grey);
+
+
+		char ch=waitKey(1);
+		if (ch == ' ')
+			break;
+	}
+
+}*/

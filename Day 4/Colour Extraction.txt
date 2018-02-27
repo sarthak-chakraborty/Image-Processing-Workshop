@@ -1,0 +1,55 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include<math.h>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace cv;
+using namespace std;
+
+/*
+int r = 0, b = 0, g = 0;
+
+void extract(int t, void *data)
+{
+	Mat *img = (Mat *)data;
+
+	Mat bin(img->rows, img->cols, CV_8UC3,Scalar(0));
+	int i, j,k;
+
+
+	for (i = 0; i < img->rows; i++)
+	{
+		for (j = 0; j < img->cols; j++)
+		{
+			if(img->at<Vec3b>(i,j)[0] >= (b-t) && img->at<Vec3b>(i,j)[0] <= (b+t) && img->at<Vec3b>(i,j)[1] >= (g-t) && img->at<Vec3b>(i,j)[1] <= (g+t) && img->at<Vec3b>(i,j)[2] >= (r-t) && img->at<Vec3b>(i,j)[2] <= (r+t) )
+			{
+				bin.at<Vec3b>(i,j)[0]=img->at<Vec3b>(i,j)[0];
+				bin.at<Vec3b>(i,j)[1]=img->at<Vec3b>(i,j)[1];
+				bin.at<Vec3b>(i,j)[2]=img->at<Vec3b>(i,j)[2];
+			}
+
+		}
+	}
+
+	imshow("Color", bin);
+	waitKey(5);
+}
+
+void main()
+{
+	Mat img = imread("F:\\pics\\sampleimage.png", CV_LOAD_IMAGE_COLOR);
+
+	imshow("Original", img);
+
+	int t = 0;
+	namedWindow("Color", WINDOW_NORMAL);
+
+	createTrackbar("Tolerance", "Color", &t, 100, extract, (void *)(&img));
+	createTrackbar("Red", "Color", &r, 255, extract, (void *)(&img));
+	createTrackbar("Green", "Color", &g, 255, extract, (void *)(&img));
+	createTrackbar("Blue", "Color", &b, 255, extract, (void *)(&img));
+	waitKey(0);
+}*/

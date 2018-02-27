@@ -1,0 +1,137 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include<math.h>
+#include <stdlib.h>
+#include <sstream>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace std;
+using namespace cv;
+
+/*
+int h = 0, s = 219, v = 235;
+
+
+Mat get_binary(Mat img, int t)
+{
+	Mat binary(img.rows, img.cols, CV_8UC1, Scalar(0));
+	
+	int i, j, k, l;
+
+	for (i = 0; i < img.rows; i++)
+	{
+		for (j = 0; j < img.cols; j++)
+		{
+			if (img.at<Vec3b>(i, j)[0] >= (h - t) && img.at<Vec3b>(i, j)[0] <= (h + t) && img.at<Vec3b>(i, j)[1] >= (s - t) && img.at<Vec3b>(i, j)[1] <= (s + t) && img.at<Vec3b>(i, j)[2] >= (v - t) && img.at<Vec3b>(i, j)[2] <= (v + t))
+			{
+				binary.at<uchar>(i, j) = 255;
+			}
+		}
+	}
+
+	return binary;
+}
+
+
+int movement(Mat img1, Mat img2)
+{
+	int i, j;
+	long long int centre1 = 0, centre2 = 0;
+	int c1 = 0, c2 = 0;
+
+	for (i = 0; i < img1.rows; i++)
+	{
+		for (j = 0; j < img1.cols; j++)
+		{
+			if (img1.at<uchar>(i, j) == 255)
+			{
+				centre1 += j;
+				c1++;
+			}
+
+			if (img2.at<uchar>(i, j) == 255)
+			{
+				centre2 += j;
+				c2++;
+			}
+		}
+	}
+	
+	if (c1 != 0 && c2 != 0)
+	{
+		centre1 = centre1 / c1;
+		centre2 = centre2 / c2;
+	}
+
+	if (centre1 - centre2 > 25)
+	{
+		return 1;
+	}
+	if (centre1 - centre2 < -25)
+	{
+		return 0;
+	}
+
+	return -1;
+}
+
+
+void main()
+{
+	VideoCapture cam(0);
+
+	int i, j, n, t = 40;
+
+	Mat binary(480, 640, CV_8UC1);
+	Mat hsv(480, 640, CV_8UC3);
+	Mat temp(480, 640, CV_8UC3, Scalar(0, 0, 0));
+	Mat prev(480, 640, CV_8UC3);
+
+	Mat frame;
+
+	while (1)
+	{
+		namedWindow("Trackbar", WINDOW_NORMAL);
+
+		createTrackbar("Hue", "Trackbar", &h, 360);
+		createTrackbar("Saturation", "Trackbar", &s, 255);
+		createTrackbar("Value", "Trackbar", &v, 255);
+		createTrackbar("Tolerance", "Trackbar", &t, 50);
+
+		for (int i = 0; i < frame.rows; i++)
+		{
+			for (j = 0; j < frame.cols; j++)
+			{
+				temp.at<Vec3b>(i, j)[0] = frame.at<Vec3b>(i, j)[0];
+				temp.at<Vec3b>(i, j)[1] = frame.at<Vec3b>(i, j)[1];
+				temp.at<Vec3b>(i, j)[2] = frame.at<Vec3b>(i, j)[2];
+			}
+		}
+		cvtColor(temp, prev, CV_BGR2HSV);
+		Mat binary1 = get_binary(prev, t);
+
+		cam >> frame;
+
+		cvtColor(frame, hsv, CV_BGR2HSV);
+
+		Mat binary = get_binary(hsv, t);
+
+		n = movement(binary, binary1);
+
+		imshow("Frame", frame);
+		imshow("Binary", binary);
+
+		if (n == 1)
+			printf("Left\n");
+		else if (n == 0)
+			printf("Right\n");
+
+		char ch = waitKey(1);
+		if (ch == ' ')
+			break;
+	}
+
+}*/

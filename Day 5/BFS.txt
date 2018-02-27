@@ -1,0 +1,126 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include<math.h>
+#include <stdlib.h>
+#include <queue>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace cv;
+using namespace std;
+
+/*
+struct point
+{
+	int x, y;
+}p;
+queue<struct point>  Q;
+
+int n = 1;
+Mat img = imread("F:\\pics\\sampleimage2.png", CV_LOAD_IMAGE_COLOR);
+Mat bin(img.rows, img.cols, CV_8UC1, Scalar(0));
+
+
+int isValid(int i, int j)
+{
+	if (i<0 || j<0 || j>img.cols || i>img.rows)
+		return 0;
+
+	return 1;
+}
+
+
+void bfs(int c)
+{
+	bin.at<uchar>(p.x, p.y) = c;
+
+	int k, l;
+
+	for (k = p.x-1; k <= p.x+1; k++)
+	{
+		for (l = p.y-1; l <= p.y+1; l++)
+		{
+			if (isValid(k, l))
+			{
+				if (!(img.at<Vec3b>(k, l)[0] == 255 && img.at<Vec3b>(k, l)[1] == 255 && img.at<Vec3b>(k, l)[2] == 255))
+				{
+					if (bin.at<uchar>(k, l) == 0)
+					{
+						if (img.at<Vec3b>(k, l)[0] >= (img.at<Vec3b>(p.x, p.y)[0] - 50) && img.at<Vec3b>(k, l)[0] <= (img.at<Vec3b>(p.x, p.y)[0] + 50) && img.at<Vec3b>(k, l)[1] >= (img.at<Vec3b>(p.x, p.y)[1] - 50) && img.at<Vec3b>(k, l)[1] <= (img.at<Vec3b>(p.x, p.y)[1] + 50) && img.at<Vec3b>(k, l)[2] >= (img.at<Vec3b>(p.x, p.y)[2] - 50) && img.at<Vec3b>(k, l)[2] <= (img.at<Vec3b>(p.x, p.y)[2] + 50))
+						{
+							p.x = k;
+							p.y = l;
+							Q.push(p);
+							bin.at<uchar>(k, l) = c;
+						}
+					}
+					else
+						continue;
+				}
+				else
+					continue;
+			}
+		}
+	}
+}
+	
+
+void main()
+{
+	imshow("BFS", img);
+
+	int i, j, c = 0;
+	int k, l;
+
+
+	for (i = 0; i < bin.rows; i++)
+	{
+		for (j = 0; j < bin.cols; j++)
+		{
+			bin.at<uchar>(i, j) = 0;
+		}
+	}
+
+
+	for (i = 0; i < img.rows; i++)
+	{
+		for (j = 0; j < img.cols; j++)
+		{
+			if (!(img.at<Vec3b>(i, j)[0] == 255 && img.at<Vec3b>(i, j)[1] == 255 && img.at<Vec3b>(i, j)[2] == 255))
+			{
+				if (bin.at<uchar>(i, j) == 0)
+				{
+					c++;
+					p.x = i;
+					p.y = j;
+					Q.push(p);
+					bfs(c);
+
+					while (!(Q.empty()))
+					{
+						Q.pop();
+						if (!(Q.empty()))
+							p = Q.front();
+
+						bfs(c);
+					}
+
+				}
+
+			}
+		}
+	}
+
+	for (i = 0; i < bin.rows; i++)
+	{
+		for (j = 0; j < bin.cols; j++)
+		{
+			if (bin.at<uchar>(i, j)>0)
+				bin.at<uchar>(i, j) = 255 / bin.at<uchar>(i, j);
+		}
+	}
+	imshow("Objects", bin);
+	waitKey(0);
+}*/

@@ -1,0 +1,103 @@
+DAY 5:
+
+	We were first asked to show the previous day's assignment and then the mentors taught about the concept of Breadth
+First Search(BFS) and was asked to implement it using Queues. 
+Pseudo Code is:
+for (i = 0; i < img.rows; i++)
+	{
+		for (j = 0; j < img.cols; j++)
+		{
+			if (!(img.at<Vec3b>(i, j)[0] == 255 && img.at<Vec3b>(i, j)[1] == 255 && img.at<Vec3b>(i, j)[2] == 255))
+			{
+				if (bin.at<uchar>(i, j) == 0)
+				{
+					c++;
+					p.x = i;
+					p.y = j;
+					Q.push(p);
+					bfs(c);
+
+					while (!(Q.empty()))
+					{
+						Q.pop();
+						if (!(Q.empty()))
+							p = Q.front();
+
+						bfs(c);
+					}
+
+				}
+
+			}
+		}
+	}
+
+void bfs(int c)
+{
+	bin.at<uchar>(p.x, p.y) = c;
+
+	int k, l;
+
+	for (k = p.x-1; k <= p.x+1; k++)
+	{
+		for (l = p.y-1; l <= p.y+1; l++)
+		{
+			if (isValid(k, l))
+			{
+				if (!(img.at<Vec3b>(k, l)[0] == 255 && img.at<Vec3b>(k, l)[1] == 255 && img.at<Vec3b>(k, l)[2] == 255))
+				{
+					if (bin.at<uchar>(k, l) == 0)
+					{
+						if (img.at<Vec3b>(k, l)[0] >= (img.at<Vec3b>(p.x, p.y)[0] - 50) && img.at<Vec3b>(k, l)[0] <= (img.at<Vec3b>(p.x, p.y)[0] + 50) && img.at<Vec3b>(k, l)[1] >= (img.at<Vec3b>(p.x, p.y)[1] - 50) && img.at<Vec3b>(k, l)[1] <= (img.at<Vec3b>(p.x, p.y)[1] + 50) && img.at<Vec3b>(k, l)[2] >= (img.at<Vec3b>(p.x, p.y)[2] - 50) && img.at<Vec3b>(k, l)[2] <= (img.at<Vec3b>(p.x, p.y)[2] + 50))
+						{
+							p.x = k;
+							p.y = l;
+							Q.push(p);
+							bin.at<uchar>(k, l) = c;
+						}
+					}
+					else
+						continue;
+				}
+				else
+					continue;
+			}
+		}
+	}
+}
+
+	After this we were taught how to capture a video from web cam and then was asked to mirror the frame received from
+the video. 
+Pseudo Code is:
+VideoCapture cam(0);
+	int i, j;
+	Mat frame;
+	while (1)
+	{
+		cam >> frame;
+		
+		Mat img(frame.rows, frame.cols, CV_8UC3);
+		for (i = 0; i < img.rows; i++)
+		{
+			for (j = 0; j < img.cols/2; j++)
+			{
+				img.at<Vec3b>(i ,j)[0] = frame.at<Vec3b>(i, 2*j)[0];
+				img.at<Vec3b>(i, j)[1] = frame.at<Vec3b>(i, 2 * j)[1];
+				img.at<Vec3b>(i, j)[2] = frame.at<Vec3b>(i, 2 * j)[2];
+					
+				img.at<Vec3b>(i, img.cols - j - 1)[0] = img.at<Vec3b>(i, j)[0];
+				img.at<Vec3b>(i, img.cols - j - 1)[1] = img.at<Vec3b>(i, j)[1];
+				img.at<Vec3b>(i, img.cols - j - 1)[2] = img.at<Vec3b>(i, j)[2];
+						
+			}
+		}
+                imshow("Mirror", img);
+		char ch=waitKey(1);
+		if (ch == ' ')
+			break;
+	}
+	After this we were taught about the basic concepts of Hough Transform and where it is used. It is ainly used for
+shape detection. We were the taught about Contours and the prototype of the library function.
+         findContours(Mat img, contours, heirarchy, mode, method);
+
+	We were also given an assignment that is to implement Hough Transform.

@@ -1,0 +1,80 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include<math.h>
+#include<algorithm>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace cv;
+using namespace std;
+
+/* int isValid(int i, int j,Mat img)
+{
+	if (i<0 || j<0 || j>img.cols || i>img.rows)
+	return 0;
+
+	return 1;
+}
+
+Mat blur(Mat img)
+{
+	Mat blur_img(img.rows, img.cols, CV_8UC3,255);
+
+	int i, j, k, l,array_blue[9], array_red[9], array_green[9], c,x;
+
+	for (i = 0; i < img.rows-1; i++)
+	{
+
+		for (j = 0; j < img.cols-1; j++)
+		{
+			for (x = 0; x < 9; x++)
+			{
+				array_blue[x] = 0;
+				array_green[x] = 0;
+				array_red[x] = 0;
+			}
+			c = 0;
+			for (k = -1; k <= 1; k++)
+			{
+				for (l = -1; l <= 1; l++)
+				{
+					if (isValid(i + k, j + l, img))
+					{
+						array_blue[c] = img.at<Vec3b>(i + k, j + l)[0];
+						array_green[c] = img.at<Vec3b>(i + k, j + l)[1];
+						array_red[c] = img.at<Vec3b>(i + k, j + l)[2];
+						c++;
+					}
+
+				}
+
+			}
+			sort(array_blue, array_blue + c);
+			sort(array_green, array_green + c);
+			sort(array_red, array_red + c);
+
+			blur_img.at<Vec3b>(i, j)[0] = array_blue[(c + 1) / 2];
+			blur_img.at<Vec3b>(i, j)[1] = array_green[(c + 1) / 2];
+			blur_img.at<Vec3b>(i, j)[2] = array_red[(c + 1) / 2];
+
+		}
+
+	}
+
+	return blur_img;
+}
+
+
+
+void main()
+{
+	Mat image = imread("F:\\pics\\eiffel.jpg", CV_LOAD_IMAGE_COLOR);
+
+	Mat blur_img = blur(image);
+
+	imshow("Original", image);
+	imshow("Blur", blur_img);
+	waitKey(0);
+}*/

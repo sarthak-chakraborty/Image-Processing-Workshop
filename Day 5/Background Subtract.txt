@@ -1,0 +1,76 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include<math.h>
+#include <stdlib.h>
+#include <sstream>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace std;
+using namespace cv;
+
+/*
+Mat back_sub(Mat img1, Mat img)
+{
+	Mat img2(img.rows, img.cols, CV_8UC1, Scalar(0));
+	int i, j;
+	int avg;
+
+	for (i = 0; i < img.rows; i++)
+	{
+		for (j = 0; j < img.cols; j++)
+		{
+			avg = fabs((float)(img.at<uchar>(i, j) - img1.at<uchar>(i, j)));
+			
+			if (avg <= 55)
+				img2.at<uchar>(i, j) = 0;
+			else
+				img2.at<uchar>(i, j) = 255;
+		}
+	}
+
+	return img2;
+
+}
+
+void main()
+{
+
+	VideoCapture cam(0);
+
+	int i, j;
+	Mat color_frame;
+	Mat temp(480, 640, CV_8UC3, Scalar(0, 0, 0));
+	Mat prev(480, 640, CV_8UC1, Scalar(0));
+	Mat frame(480, 640, CV_8UC1, Scalar(0));
+
+	while (1)
+	{
+		for (int i = 0; i < color_frame.rows; i++)
+		{
+			for (j = 0; j < color_frame.cols; j++)
+			{
+				temp.at<Vec3b>(i, j)[0] = color_frame.at<Vec3b>(i, j)[0];
+				temp.at<Vec3b>(i, j)[1] = color_frame.at<Vec3b>(i, j)[1];
+				temp.at<Vec3b>(i, j)[2] = color_frame.at<Vec3b>(i, j)[2];
+			}
+		}
+
+		cvtColor(temp, prev, CV_RGB2GRAY);
+
+		cam >> color_frame;
+		cvtColor(color_frame, frame, CV_RGB2GRAY);
+
+		Mat back(color_frame.rows, color_frame.cols, CV_8UC1);
+		back = back_sub(prev, frame);
+
+		imshow("Frame", color_frame);
+
+		imshow("Change", back);
+		char ch = waitKey(1);
+		if (ch == ' ')
+			break;
+	}
+}*/

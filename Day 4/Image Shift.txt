@@ -1,0 +1,143 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include<math.h>
+#include <stdlib.h>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace cv;
+using namespace std;
+
+/*
+Mat image = imread("F:\\pics\\sampleimage2.png", CV_LOAD_IMAGE_COLOR);
+Mat bin(image.rows, image.cols, CV_8UC1, Scalar(0));
+
+int isValid(int i, int j)
+{
+	if (i<0 || j<0 || j>image.cols || i>image.rows)
+		return 0;
+
+	return 1;
+}
+
+
+void dfs(int i, int j, int c)
+{
+	bin.at<uchar>(i, j) = c;
+
+	int k, l;
+
+	for (k = -1; k <= 1; k++)
+	{
+		for (l = -1; l <= 1; l++)
+		{
+			if (isValid(i + k, j + l))
+			{
+				if (!(image.at<Vec3b>(i + k, j + l)[0] == 255 && image.at<Vec3b>(i + k, j + l)[1] == 255 && image.at<Vec3b>(i + k, j + l)[2] == 255))
+				{
+					if (bin.at<uchar>(i + k, j + l) == 0)
+					{
+						if (image.at<Vec3b>(i + k, j + l)[0] >= (image.at<Vec3b>(i, j)[0] - 100) && image.at<Vec3b>(i + k, j + l)[0] <= (image.at<Vec3b>(i, j)[0] + 100) && image.at<Vec3b>(i + k, j + l)[1] >= (image.at<Vec3b>(i, j)[1] - 100) && image.at<Vec3b>(i + k, j + l)[1] <= (image.at<Vec3b>(i, j)[1] + 100) && image.at<Vec3b>(i + k, j + l)[2] >= (image.at<Vec3b>(i, j)[2] - 100) && image.at<Vec3b>(i + k, j + l)[2] <= (image.at<Vec3b>(i, j)[2] + 100))
+						{
+							dfs(i + k, j + l, c);
+						}
+					}
+					else
+						continue;
+				}
+				else
+					continue;
+			}
+		}
+	}
+}
+
+
+void objects(int pos,void *data)
+{
+	Mat temp(image.rows, image.cols, CV_8UC1, Scalar(0));
+	Mat temp1(image.rows, image.cols, CV_8UC1, Scalar(0));
+
+	int i, j, c = 0;
+
+	for (i = 0; i < bin.rows; i++)
+	{
+		for (j = 0; j < bin.cols; j++)
+		{
+			bin.at<uchar>(i, j) = 0;
+		}
+	}
+
+	for (i = 0; i < image.rows; i++)
+	{
+		for (j = 0; j < image.cols; j++)
+		{
+			if (!(image.at<Vec3b>(i, j)[0] == 255 && image.at<Vec3b>(i, j)[1] == 255 && image.at<Vec3b>(i, j)[2] == 255))
+			{
+				if (bin.at<uchar>(i, j)==0)
+				{
+					c++;
+					dfs(i, j, c);
+				}
+
+			}
+		}
+	}
+
+	for (i = 0; i < bin.rows; i++)
+	{
+		for (j = 0; j < bin.cols; j++)
+		{
+			if (bin.at<uchar>(i, j) == 1)
+			{
+				if (j + pos<image.cols)
+				{
+					temp.at<uchar>(i, j + pos) = 255 / bin.at<uchar>(i, j);
+				}
+				else
+					temp.at<uchar>(i, j + pos - image.cols) = 255 / bin.at<uchar>(i, j);
+			}
+			else if (bin.at<uchar>(i, j)>0)
+				temp.at<uchar>(i, j) = 255 / bin.at<uchar>(i, j);
+
+		}
+	}
+
+	for (i = 0; i < bin.rows; i++)
+	{
+		for (j = 0; j < bin.cols; j++)
+		{
+			if (bin.at<uchar>(i, j)>0)
+			{
+				if (j + pos < image.cols)
+				{
+					temp1.at<uchar>(i, j + pos) = 255 / bin.at<uchar>(i, j);
+				}
+				else
+					temp1.at<uchar>(i, j + pos - image.cols) = 255 / bin.at<uchar>(i, j);
+			}
+		}
+	}
+
+	imshow("Object", temp);
+	imshow("Shift", temp1);
+	waitKey(1);
+
+}
+
+
+void main()
+{
+	int v = 0;
+
+	imshow("Original", image);
+
+	namedWindow("Object", WINDOW_NORMAL);
+
+	createTrackbar("Shift", "Object", &v, 100, objects, (void *)(&image));
+	createTrackbar("Shift", "Shift", &v, 100, objects, (void *)(&image));
+
+	waitKey(0);
+}*/

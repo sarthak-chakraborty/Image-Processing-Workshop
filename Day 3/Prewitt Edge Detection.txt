@@ -1,0 +1,74 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include<math.h>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace cv;
+using namespace std;
+
+/*
+int isValid(int i, int j,int a,int b)
+{
+	if (i<0 || j<0 || j>b || i>a)
+	return 0;
+
+	return 1;
+}
+
+void edge(int v,void *data)
+{
+	Mat *img = (Mat *)data;
+
+	int m1[3][3] = { { -1, 0, 1 }, { -1, 0, 1 }, { -1, 0, 1 } };
+	int m2[3][3] = { { -1, -1, -1 }, { 0, 0, 0 }, { 1, 1, 1 } };
+
+	Mat edge(img->rows, img->cols, CV_8UC1);
+	int i, j, k, l;
+	int c = 0, g = 0;
+
+	for (i = 0; i < img->rows-1; i++)
+	{
+
+		for (j = 0; j < img->cols-1; j++)
+		{
+
+			int gx = 0;
+			int gy = 0;
+			for (k = -1; k <= 1; k++)
+			{
+				for (l = -1; l <= 1; l++)
+				{
+					if (isValid(i + k, j + l, img->rows, img->cols))
+					{
+						gx += img->at<Vec3b>(i + k, j + l)[0] * m1[k + 1][l + 1];
+						gy += img->at<Vec3b>(i + k, j + l)[1] * m2[k + 1][l + 1];
+					}
+				}
+			}
+			g = fabs((float)gx) + fabs((float)gy);
+			//g = sqrt(gx*gx + gy*gy);
+
+			if (g <= v)
+				edge.at<uchar>(i, j) = 0;
+			else
+				edge.at<uchar>(i, j) = 255;
+		}
+	}
+	imshow("Edge Detection", edge);
+	waitKey(1);
+}
+
+void main()
+{
+	Mat image = imread("F:\\pics\\eiffel.jpg", CV_LOAD_IMAGE_COLOR);
+	imshow("Original", image);
+
+	int v = 0;
+	namedWindow("Edge Detection");
+
+	createTrackbar("Gradient", "Edge Detection", &v, 255, edge, (void*)(&image));
+	waitKey(0);
+}*/

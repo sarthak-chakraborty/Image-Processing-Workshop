@@ -1,0 +1,76 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include<math.h>
+#include <stdlib.h>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+
+using namespace std;
+using namespace cv;
+
+/*
+Point2i p1;
+Point2i p2;
+
+
+int isValid(int i, int j, int r, int c)
+{
+	if (i<0 || j<0 || j>c || i>r)
+		return 0;
+
+	return 1;
+}
+
+
+void click(int event, int x1, int y1,int flags, void* data)
+{
+	Mat *img = (Mat *)data;
+	
+	if (event == EVENT_LBUTTONDOWN)
+	{
+		p1.x = x1;
+		p1.y = y1;
+		
+		
+	}
+	p2.x = x1;
+	p2.y = y1;
+
+		if (event == EVENT_MOUSEMOVE && flags == EVENT_FLAG_LBUTTON)
+		{
+			for (int k = -2; k <= 2; k++)
+			{
+				for (int l = -2; l <= 2; l++)
+				{
+					if (isValid(x1 + k, y1 + l, (*img).rows, (*img).cols))
+					{
+						img->at<uchar>(y1 + l, x1 + k) = 255;
+						line(*img, p1, p2, 255, 5);
+						
+						p1 = p2;
+						
+					}
+					imshow("Window", *img);
+
+				}
+
+			}
+		}
+				
+	
+
+}
+
+void main()
+{ 
+	Mat img(500, 500, CV_8UC1, Scalar(0));
+
+	namedWindow("Window",WINDOW_NORMAL);
+
+	setMouseCallback("Window",click , (void *)(&img));
+
+	waitKey(0);
+}*/

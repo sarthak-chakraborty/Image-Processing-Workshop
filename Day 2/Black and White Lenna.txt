@@ -1,0 +1,55 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include<math.h>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace cv;
+using namespace std;
+
+/*
+void displaylenna(Mat img, String windowname)
+{
+	imshow(windowname, img);
+}
+
+Mat readlenna(String filename)
+{
+	return imread(filename, CV_LOAD_IMAGE_COLOR);
+}
+
+void createlenna(String filename)
+{
+	Mat img = readlenna(filename);
+	Mat grey(img.rows, img.cols, CV_8UC1, 255);
+	Mat new_grey(img.rows, img.cols, CV_8UC1, 255);
+	Mat new_img(img.rows, img.cols, CV_8UC1, 255);
+
+	int i, j,avg,avg1,avg2;
+	for (i = 0; i < grey.rows; i++)
+	{
+		for (j = 0; j < grey.cols; j++)
+		{
+			avg = (img.at<Vec3b>(i, j)[0] + img.at<Vec3b>(i, j)[1] + img.at<Vec3b>(i, j)[2]) / 3;
+			avg1 = (max(max(img.at<Vec3b>(i, j)[0], img.at<Vec3b>(i, j)[1]) , img.at<Vec3b>(i, j)[2]) + min(min(img.at<Vec3b>(i, j)[0] , img.at<Vec3b>(i, j)[1]), img.at<Vec3b>(i, j)[2])) / 2;
+			avg2 = (0.11*img.at<Vec3b>(i, j)[0]) + (0.59*img.at<Vec3b>(i, j)[1]) + (0.30*img.at<Vec3b>(i, j)[2]);
+			grey.at<uchar>(i, j) = avg;
+			new_grey.at<uchar>(i, j) = avg1;
+			new_img.at<uchar>(i, j) = avg2;
+
+		}
+	}
+	displaylenna(img, "Lenna");
+	displaylenna(grey, "GreyLenna");
+	displaylenna(new_grey, "Grey");
+	displaylenna(new_img, "Best Image");
+}
+
+void main()
+{
+	createlenna("F:\\pics\\lenna.jpg");
+	int ikey = waitKey(50);
+	waitKey(0);
+}*/

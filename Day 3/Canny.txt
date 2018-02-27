@@ -1,0 +1,32 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include<math.h>
+#include <opencv2\highgui\highgui.hpp>
+#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\core\core.hpp>
+
+using namespace cv;
+using namespace std;
+
+/*
+void main()
+{
+	Mat img = imread("F:\\pics\\eiffel.jpg", CV_LOAD_IMAGE_COLOR);
+	Mat output(img.rows, img.cols, CV_8UC3);
+	int lth = 50, hth = 150;
+
+	namedWindow("Canny", WINDOW_NORMAL);
+	createTrackbar("LTh", "Canny", &lth, 255);
+	createTrackbar("HTh", "Canny", &hth, 255);
+
+	while (1)
+	{
+		Canny(img, output, lth, hth, 3);
+		imshow("Canny", output);
+		char ch=waitKey(5);
+
+		if (ch == ' ')
+			break;
+	}	
+}*/
